@@ -1,4 +1,5 @@
-public class Producto {
+package uniquindio.edu.co
+    public class Producto {
 
     private String codigoProdcuto;
     private String nombre;
