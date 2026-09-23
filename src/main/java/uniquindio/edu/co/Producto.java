@@ -1,13 +1,13 @@
-package uniquindio.edu.co
+package uniquindio.edu.co;
     public class Producto {
 
     private String codigoProdcuto;
     private String nombre;
-    private categoria categoria;
+    private CategoriaProducto categoria;
     private double precioUnitario;
     private int cantidadDisponible;
 
-    public Producto(String codigoProdcuto, String nombre, categoria categoria, double precioUnitario, int cantidadDisponible) {
+    public Producto(String codigoProdcuto, String nombre, CategoriaProducto categoria, double precioUnitario, int cantidadDisponible) {
         this.codigoProdcuto = codigoProdcuto;
         this.nombre = nombre;
         this.categoria = categoria;
@@ -31,11 +31,11 @@ package uniquindio.edu.co
         this.nombre = nombre;
     }
 
-    public categoria getCategoria() {
+    public CategoriaProducto getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(categoria categoria) {
+    public void setCategoria(CategoriaProducto categoria) {
         this.categoria = categoria;
     }
 
