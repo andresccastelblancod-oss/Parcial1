@@ -119,9 +119,8 @@ public class Main {
                         }
                     }
                     break;
-
                 case 4:
-                    System.out.println("\n--- HISTORIAL DE COMPRAS DE UN CLIENTE ---");
+                System.out.println("\n--- HISTORIAL DE COMPRAS DE UN CLIENTE ---");
                     System.out.print("Ingrese el documento del cliente: ");
                     String docHistorial = sc.nextLine().trim();
 
