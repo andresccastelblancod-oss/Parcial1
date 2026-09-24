@@ -79,9 +79,8 @@ package uniquindio.edu.co;
     public void actualizarInventario(int cantidad){
         this.cantidadDisponible=this.cantidadDisponible-cantidad;
     }
-    public int calcularSubTotal(int precioProducto){
-        
-    }
+
+
 
 
 }
