@@ -141,7 +141,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("\n--- VENTAS TOTALES POR FECHA ---");
+                   System.out.println("\n--- VENTAS TOTALES POR FECHA ---");
                     System.out.print("Ingrese la fecha (YYYY-MM-DD) o presione ENTER para la fecha de hoy: ");
                     String fechaTexto = sc.nextLine().trim();
 
@@ -155,6 +155,7 @@ public class Main {
                     double totalVentas = supermercado.obtenerVentasFechas(fechaConsulta);
                     System.out.println("Total de ventas para " + fechaConsulta + ": $" + totalVentas);
                     break;
+
 
                 case 6:
                     System.out.println("Saliendo del sistema MarketPlus");
