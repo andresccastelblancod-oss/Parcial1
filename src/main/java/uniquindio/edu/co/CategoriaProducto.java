@@ -1,9 +1,8 @@
 package uniquindio.edu.co;
 
 public enum CategoriaProducto {
-    ALIMENTO,
-    BEBIDA,
+    ALIMENTOS,
+    BEBIDAS,
     ASEO,
-    PERSONAL,
-
+    CUIDADO_PERSONAL
 }

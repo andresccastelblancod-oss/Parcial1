@@ -25,27 +25,35 @@ public class Cliente {
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }
+
     public String getDocumento() {
         return documento;
     }
+
     public void setDocumento(String documento) {
         this.documento = documento;
     }
+
     public String getTelefono() {
         return telefono;
     }
+
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
     public String getCorreo() {
         return correo;
     }
+
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
     public List<Compra> getHistorialCompras() {
         return historialCompras;
     }
+
     public void setHistorialCompras(List<Compra> historialCompras) {
         this.historialCompras = historialCompras;
     }
@@ -54,22 +62,23 @@ public class Cliente {
     public String toString() {
         return "Cliente{" +
                 "nombreCompleto='" + nombreCompleto + '\'' +
-                ", documento=" + documento +
-                ", telefono=" + telefono +
+                ", documento='" + documento + '\'' +
+                ", telefono='" + telefono + '\'' +
                 ", correo='" + correo + '\'' +
+                ", historialCompras=" + historialCompras +
                 '}';
     }
-    public void registrarCompra(Compra compra){
+
+    public void registrarCompra(Compra compra) {
         this.historialCompras.add(compra);
     }
-    public double calcularTotalGastado(){
-        double totalGastado=0;
-        for(Compra compra:this.historialCompras){
-            totalGastado+= compra.calcularValorTotal();
+
+    public double calcularTotalGastado() {
+        double totalGastado = 0;
+        for (Compra compra : this.historialCompras) {
+            totalGastado += compra.getValorTotal();
         }
         return totalGastado;
     }
-
-
 }
 

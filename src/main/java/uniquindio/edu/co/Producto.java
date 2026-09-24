@@ -1,5 +1,6 @@
 package uniquindio.edu.co;
-    public class Producto {
+
+public class Producto {
 
     private String codigoProducto;
     private String nombre;
@@ -19,8 +20,8 @@ package uniquindio.edu.co;
         return codigoProducto;
     }
 
-    public void setCodigoProdcuto(String codigoProdcuto) {
-        this.codigoProducto = codigoProdcuto;
+    public void setCodigoProducto(String codigoProducto) {
+        this.codigoProducto = codigoProducto;
     }
 
     public String getNombre() {
@@ -39,12 +40,12 @@ package uniquindio.edu.co;
         this.categoria = categoria;
     }
 
-    public double getPrecioUnitario() {
+    public double getPrecioProducto() {
         return precioProducto;
     }
 
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioProducto = precioUnitario;
+    public void setPrecioProducto(double precioProducto) {
+        this.precioProducto = precioProducto;
     }
 
     public int getCantidadDisponible() {
@@ -58,29 +59,19 @@ package uniquindio.edu.co;
     @Override
     public String toString() {
         return "Producto{" +
-                "codigoProdcuto='" + codigoProducto + '\'' +
+                "codigoProducto='" + codigoProducto + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", categoria=" + categoria +
-                ", precioUnitario=" + precioProducto+
+                ", precioProducto=" + precioProducto +
                 ", cantidadDisponible=" + cantidadDisponible +
                 '}';
     }
 
-    public boolean validarDisponibilidad(int cantidad){
-        boolean estaDisponible=true;
-        if(cantidadDisponible>=cantidad && cantidad!=0){
-            estaDisponible=true;
-        }
-        else{
-            estaDisponible=false;
-        }
-        return estaDisponible;
-    }
-    public void actualizarInventario(int cantidad){
-        this.cantidadDisponible=this.cantidadDisponible-cantidad;
+    public boolean validarDisponibilidad(int cantidad) {
+        return cantidadDisponible >= cantidad && cantidad > 0;
     }
 
-
-
-
+    public void actualizarInventario(int cantidad) {
+        this.cantidadDisponible = this.cantidadDisponible - cantidad;
+    }
 }

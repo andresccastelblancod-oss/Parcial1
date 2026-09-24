@@ -7,34 +7,32 @@ import java.util.List;
 public class Compra {
     private String codigoCompra;
     private LocalDate fecha;
-    private Cliente cliente;
     private MetodoDePago metodoPago;
+    private Cliente cliente;
     private double valorTotal;
-
-
     private List<DetalleDeCompra> listaDetalleDeCompra;
 
-
-    public Compra(String codCompra, LocalDate now, MetodoDePago nuevoMetodoDePago, Cliente cliente) {
-        this.codigoCompra = codigoCompra;
+    public Compra(String codCompra, LocalDate fecha, MetodoDePago nuevoMetodoDePago, Cliente cliente, double valorTotal) {
+        this.codigoCompra = codCompra;
         this.fecha = fecha;
-        this.metodoPago = metodoPago;
+        this.metodoPago = nuevoMetodoDePago;
         this.cliente = cliente;
-        this.valorTotal = 0.0;
-
-
+        this.valorTotal = valorTotal;
         this.listaDetalleDeCompra = new ArrayList<>();
     }
 
     public String getCodigoCompra() {
         return codigoCompra;
     }
+
     public void setCodigoCompra(String codigoCompra) {
         this.codigoCompra = codigoCompra;
     }
+
     public LocalDate getFecha() {
         return fecha;
     }
+
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
@@ -42,24 +40,31 @@ public class Compra {
     public MetodoDePago getMetodoPago() {
         return metodoPago;
     }
+
     public void setMetodoPago(MetodoDePago metodoPago) {
         this.metodoPago = metodoPago;
     }
+
     public Cliente getCliente() {
         return cliente;
     }
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
     public double getValorTotal() {
         return valorTotal;
     }
+
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
     public List<DetalleDeCompra> getListaDetalleDeCompra() {
         return listaDetalleDeCompra;
     }
+
     public void setListaDetalleDeCompra(List<DetalleDeCompra> listaDetalleDeCompra) {
         this.listaDetalleDeCompra = listaDetalleDeCompra;
     }
@@ -69,35 +74,32 @@ public class Compra {
         return "Compra{" +
                 "codigoCompra='" + codigoCompra + '\'' +
                 ", fecha=" + fecha +
-                ", cliente=" + cliente +
+                ", cliente=" + cliente.getNombreCompleto() +
                 ", metodoPago=" + metodoPago +
                 ", valorTotal=" + valorTotal +
                 ", listaDetalleDeCompra=" + listaDetalleDeCompra +
                 '}';
     }
 
-    public void agregarDetalle(Producto producto, int cantidad) {
-        if (producto.validarDisponibilidad(cantidad)) {
-            DetalleDeCompra nuevoDetalle= new DetalleDeCompra(cantidad, producto);
-            this.listaDetalleDeCompra.add(nuevoDetalle);
-        } else {
-            System.out.println("No hay suficiente cantidad disponible del producto.");
-        }
+    public void agregarDetalle(int cantidad, Producto producto) {
+        DetalleDeCompra detalle = new DetalleDeCompra(cantidad, producto);
+        this.listaDetalleDeCompra.add(detalle);
     }
 
     public double calcularValorTotal() {
-        double precioTotal = 0;
-        for (DetalleDeCompra detalle : this.listaDetalleDeCompra) {
-            precioTotal += detalle.calcularSubTotal();
+        double acumulado = 0.0;
+        for (DetalleDeCompra detalle : listaDetalleDeCompra) {
+            acumulado += detalle.getCantidad() * detalle.getProducto().getPrecioProducto();
         }
-        return precioTotal;
+        this.valorTotal = acumulado;
+        return this.valorTotal;
     }
-    public void confirmarCompra(){
-        for(DetalleDeCompra detalle: this.listaDetalleDeCompra){
-            Producto producto=detalle.getProducto();
-            int cantidad=detalle.getCantidad();
-            producto.actualizarInventario(cantidad);
-        }
 
+    public void confirmarCompra() {
+        calcularValorTotal();
+
+        for (DetalleDeCompra detalle : listaDetalleDeCompra) {
+            detalle.getProducto().actualizarInventario(detalle.getCantidad());
+        }
     }
 }

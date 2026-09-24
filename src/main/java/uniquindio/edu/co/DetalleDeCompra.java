@@ -3,7 +3,6 @@ package uniquindio.edu.co;
 public class DetalleDeCompra {
     private int cantidad;
     private Producto producto;
-    ;
 
     public DetalleDeCompra(int cantidad, Producto producto) {
         this.cantidad = cantidad;
@@ -33,10 +32,4 @@ public class DetalleDeCompra {
                 ", producto=" + producto +
                 '}';
     }
-    public double calcularSubTotal() {
-        double precio = producto.getPrecioUnitario();
-        double subtotal=precio*cantidad;
-        return subtotal;
-    }
 }
-
