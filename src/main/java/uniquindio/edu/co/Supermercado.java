@@ -3,9 +3,9 @@ package uniquindio.edu.co;
 public class Supermercado {
     private String nombre;
     private String direccion;
-    private int telefono;
+    private String telefono;
 
-    public Supermercado(String nombre, String direccion, int telefono){
+    Supermercado(String nombre, String direccion, String telefono){
         this.nombre=nombre;
         this.direccion=direccion;
         this.telefono=telefono;
@@ -22,10 +22,10 @@ public class Supermercado {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     @Override

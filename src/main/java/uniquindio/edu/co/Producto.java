@@ -4,14 +4,14 @@ package uniquindio.edu.co;
     private String codigoProdcuto;
     private String nombre;
     private CategoriaProducto categoria;
-    private double precioUnitario;
+    private double precioProducto;
     private int cantidadDisponible;
 
     public Producto(String codigoProdcuto, String nombre, CategoriaProducto categoria, double precioUnitario, int cantidadDisponible) {
         this.codigoProdcuto = codigoProdcuto;
         this.nombre = nombre;
         this.categoria = categoria;
-        this.precioUnitario = precioUnitario;
+        this.precioProducto = precioUnitario;
         this.cantidadDisponible = cantidadDisponible;
     }
 
@@ -40,11 +40,11 @@ package uniquindio.edu.co;
     }
 
     public double getPrecioUnitario() {
-        return precioUnitario;
+        return precioProducto;
     }
 
     public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
+        this.precioProducto = precioUnitario;
     }
 
     public int getCantidadDisponible() {
@@ -61,8 +61,27 @@ package uniquindio.edu.co;
                 "codigoProdcuto='" + codigoProdcuto + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", categoria=" + categoria +
-                ", precioUnitario=" + precioUnitario +
+                ", precioUnitario=" + precioProducto+
                 ", cantidadDisponible=" + cantidadDisponible +
                 '}';
     }
+
+    public boolean validarDisponibilidad(int cantidad){
+        boolean estaDisponible=true;
+        if(cantidadDisponible>=cantidad && cantidad!=0){
+            estaDisponible=true;
+        }
+        else{
+            estaDisponible=false;
+        }
+        return estaDisponible;
+    }
+    public void actualizarInventario(int cantidad){
+        this.cantidadDisponible=this.cantidadDisponible-cantidad;
+    }
+    public int calcularSubTotal(int precioProducto){
+        
+    }
+
+
 }
