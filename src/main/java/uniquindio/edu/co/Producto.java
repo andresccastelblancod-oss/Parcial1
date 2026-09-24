@@ -1,26 +1,26 @@
 package uniquindio.edu.co;
     public class Producto {
 
-    private String codigoProdcuto;
+    private String codigoProducto;
     private String nombre;
     private CategoriaProducto categoria;
     private double precioProducto;
     private int cantidadDisponible;
 
-    public Producto(String codigoProdcuto, String nombre, CategoriaProducto categoria, double precioUnitario, int cantidadDisponible) {
-        this.codigoProdcuto = codigoProdcuto;
+    public Producto(String codigoProducto, String nombre, CategoriaProducto categoria, double precioUnitario, int cantidadDisponible) {
+        this.codigoProducto = codigoProducto;
         this.nombre = nombre;
         this.categoria = categoria;
         this.precioProducto = precioUnitario;
         this.cantidadDisponible = cantidadDisponible;
     }
 
-    public String getCodigoProdcuto() {
-        return codigoProdcuto;
+    public String getCodigoProducto() {
+        return codigoProducto;
     }
 
     public void setCodigoProdcuto(String codigoProdcuto) {
-        this.codigoProdcuto = codigoProdcuto;
+        this.codigoProducto = codigoProdcuto;
     }
 
     public String getNombre() {
@@ -58,7 +58,7 @@ package uniquindio.edu.co;
     @Override
     public String toString() {
         return "Producto{" +
-                "codigoProdcuto='" + codigoProdcuto + '\'' +
+                "codigoProdcuto='" + codigoProducto + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", categoria=" + categoria +
                 ", precioUnitario=" + precioProducto+
